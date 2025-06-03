@@ -1,0 +1,12 @@
+[phases.setup]
+nixPkgs = ["python39", "python39Packages.pip", "python39Packages.setuptools", "python39Packages.virtualenv"]
+
+[phases.build]
+cmds = [
+  "virtualenv /app/venv",
+  ". /app/venv/bin/activate",
+  "pip install --no-cache-dir -r requirements.txt"
+]
+
+[start]
+cmd = ". /app/venv/bin/activate && python predict.py"
